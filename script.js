@@ -408,7 +408,7 @@ class PomodoroTimer {
     updateProgress() {
         const totalSeconds = this.getSessionDuration() * 60;
         const remainingSeconds = this.currentTime;
-        const progress = (totalSeconds - remainingSeconds) / totalSeconds;
+        const progress = remainingSeconds / totalSeconds; // Progress based on remaining time
         const offset = this.circumference - (progress * this.circumference);
         
         this.progressCircle.style.strokeDashoffset = offset;
