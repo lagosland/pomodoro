@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=-apple-system:wght@300;400;500;600;700&family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>Timer</h1>
+            <div class="header-actions">
+                <button class="icon-btn" id="addBtn">➕</button>
+                <button class="icon-btn" id="settingsBtn">⚙️</button>
+            </div>
+        </header>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn" id="listTab" data-tab="list">List</button>
+            <button class="tab-btn active" id="pomodoroTab" data-tab="pomodoro">Pomodoro</button>
+        </div>
+
+        <!-- Pomodoro Tab Content -->
+        <div class="tab-content active" id="pomodoroContent">
+            <div class="focus-input-container">
+                <input type="text" id="focusInput" placeholder="I'm focusing on..." class="focus-input">
+            </div>
+
+            <div class="timer-circle-container">
+                <div class="timer-circle">
+                    <!-- Clock tick marks -->
+                    <div class="tick-marks">
+                        <div class="tick major" style="transform: rotate(0deg)"></div>
+                        <div class="tick minor" style="transform: rotate(6deg)"></div>
+                        <div class="tick minor" style="transform: rotate(12deg)"></div>
+                        <div class="tick minor" style="transform: rotate(18deg)"></div>
+                        <div class="tick minor" style="transform: rotate(24deg)"></div>
+                        <div class="tick major" style="transform: rotate(30deg)"></div>
+                        <div class="tick minor" style="transform: rotate(36deg)"></div>
+                        <div class="tick minor" style="transform: rotate(42deg)"></div>
+                        <div class="tick minor" style="transform: rotate(48deg)"></div>
+                        <div class="tick minor" style="transform: rotate(54deg)"></div>
+                        <div class="tick major" style="transform: rotate(60deg)"></div>
+                        <div class="tick minor" style="transform: rotate(66deg)"></div>
+                        <div class="tick minor" style="transform: rotate(72deg)"></div>
+                        <div class="tick minor" style="transform: rotate(78deg)"></div>
+                        <div class="tick minor" style="transform: rotate(84deg)"></div>
+                        <div class="tick major" style="transform: rotate(90deg)"></div>
+                        <div class="tick minor" style="transform: rotate(96deg)"></div>
+                        <div class="tick minor" style="transform: rotate(102deg)"></div>
+                        <div class="tick minor" style="transform: rotate(108deg)"></div>
+                        <div class="tick minor" style="transform: rotate(114deg)"></div>
+                        <div class="tick major" style="transform: rotate(120deg)"></div>
+                        <div class="tick minor" style="transform: rotate(126deg)"></div>
+                        <div class="tick minor" style="transform: rotate(132deg)"></div>
+                        <div class="tick minor" style="transform: rotate(138deg)"></div>
+                        <div class="tick minor" style="transform: rotate(144deg)"></div>
+                        <div class="tick major" style="transform: rotate(150deg)"></div>
+                        <div class="tick minor" style="transform: rotate(156deg)"></div>
+                        <div class="tick minor" style="transform: rotate(162deg)"></div>
+                        <div class="tick minor" style="transform: rotate(168deg)"></div>
+                        <div class="tick minor" style="transform: rotate(174deg)"></div>
+                        <div class="tick major" style="transform: rotate(180deg)"></div>
+                        <div class="tick minor" style="transform: rotate(186deg)"></div>
+                        <div class="tick minor" style="transform: rotate(192deg)"></div>
+                        <div class="tick minor" style="transform: rotate(198deg)"></div>
+                        <div class="tick minor" style="transform: rotate(204deg)"></div>
+                        <div class="tick major" style="transform: rotate(210deg)"></div>
+                        <div class="tick minor" style="transform: rotate(216deg)"></div>
+                        <div class="tick minor" style="transform: rotate(222deg)"></div>
+                        <div class="tick minor" style="transform: rotate(228deg)"></div>
+                        <div class="tick minor" style="transform: rotate(234deg)"></div>
+                        <div class="tick major" style="transform: rotate(240deg)"></div>
+                        <div class="tick minor" style="transform: rotate(246deg)"></div>
+                        <div class="tick minor" style="transform: rotate(252deg)"></div>
+                        <div class="tick minor" style="transform: rotate(258deg)"></div>
+                        <div class="tick minor" style="transform: rotate(264deg)"></div>
+                        <div class="tick major" style="transform: rotate(270deg)"></div>
+                        <div class="tick minor" style="transform: rotate(276deg)"></div>
+                        <div class="tick minor" style="transform: rotate(282deg)"></div>
+                        <div class="tick minor" style="transform: rotate(288deg)"></div>
+                        <div class="tick minor" style="transform: rotate(294deg)"></div>
+                        <div class="tick major" style="transform: rotate(300deg)"></div>
+                        <div class="tick minor" style="transform: rotate(306deg)"></div>
+                        <div class="tick minor" style="transform: rotate(312deg)"></div>
+                        <div class="tick minor" style="transform: rotate(318deg)"></div>
+                        <div class="tick minor" style="transform: rotate(324deg)"></div>
+                        <div class="tick major" style="transform: rotate(330deg)"></div>
+                        <div class="tick minor" style="transform: rotate(336deg)"></div>
+                        <div class="tick minor" style="transform: rotate(342deg)"></div>
+                        <div class="tick minor" style="transform: rotate(348deg)"></div>
+                        <div class="tick minor" style="transform: rotate(354deg)"></div>
+                    </div>
+
+                    <!-- Progress Ring -->
+                    <svg class="progress-ring-svg" width="280" height="280">
+                        <circle
+                            class="progress-ring-circle"
+                            stroke="#c47bd8"
+                            stroke-width="6"
+                            fill="transparent"
+                            r="130"
+                            cx="140"
+                            cy="140"/>
+                    </svg>
+
+                    <!-- Timer Content -->
+                    <div class="timer-content">
+                        <div class="session-label" id="sessionLabel">Focus</div>
+                        <div class="time-display" id="timeDisplay">25:00</div>
+                        <div class="ready-text" id="readyText">Ready?</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timer-controls">
+                <button class="start-session-btn" id="startSessionBtn">Start session</button>
+                <button class="reset-btn" id="resetBtn">Reset</button>
+            </div>
+            
+            <div class="settings-link">
+                <a href="#" id="pomodoroSettingsLink">Pomodoro settings ›</a>
+            </div>
+        </div>
+
+        <!-- List Tab Content -->
+        <div class="tab-content" id="listContent">
+            <div class="today-section">
+                <div class="today-header">
+                    <h2>Today</h2>
+                    <div class="total-time" id="todayTotalTime">0:00:00</div>
+                </div>
+            </div>
+
+            <div class="task-list" id="taskList">
+                <!-- Tasks will be dynamically added here -->
+            </div>
+
+            <div class="bottom-input-container">
+                <input type="text" id="taskInput" placeholder="I'm working on..." class="task-input">
+                <button class="play-btn" id="startTaskBtn">▶</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Pomodoro Settings</h3>
+                <button class="close-btn" id="closeSettings">✕</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-item">
+                    <label for="modalFocusTime">Focus time (minutes):</label>
+                    <input type="number" id="modalFocusTime" min="1" max="60" value="25">
+                </div>
+                <div class="setting-item">
+                    <label for="modalBreakTime">Break time (minutes):</label>
+                    <input type="number" id="modalBreakTime" min="1" max="30" value="5">
+                </div>
+                <div class="setting-item">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="modalSoundNotifications" checked>
+                        <span class="checkmark"></span>
+                        Enable sound notifications
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
